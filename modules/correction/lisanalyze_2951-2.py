@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import sqlite3, datetime, statistics
-import helper_scripts.gettimedelta as gettimedelta
+import modules.misc.gettimedelta as gettimedelta
 
 # Note: currently this correction function writes the corrected value back into
 # the database. Whether this is a better approach than writing to a separate
