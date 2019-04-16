@@ -9,7 +9,7 @@
 # TODO:
 # * Insert date range (i.e. start and end dates of database) on each run. INSERT and not UPDATE INTO.
 
-VERSION = "0.1.0-20190314"
+VERSION = "0.1.0-20190416"
 
 import sys
 import urllib.request
@@ -57,7 +57,6 @@ if s > e:
 dbname = args.pid + ".sqlite3"
 conn = sqlite3.connect(dbname)
 c = conn.cursor()
-c.execute("CREATE TABLE IF NOT EXISTS patient_info (pid TEXT, name TEXT, gender TEXT, age INTEGER, ethnicity TEXT)")
 #c.execute("CREATE TABLE IF NOT EXISTS lis_data (time TEXT, lab_item TEXT, site TEXT, lab_test_name TEXT, lab_value TEXT, ref_low TEXT, ref_high TEXT, unit TEXT, method TEXT, comment TEXT, corrected INTEGER, UNIQUE (time, lab_item, site, lab_test_name))")
 c.execute("CREATE TABLE IF NOT EXISTS lis_data (time TEXT, lab_item TEXT, site TEXT, lab_test_name TEXT, lab_value TEXT, ref_low TEXT, ref_high TEXT, unit TEXT, method TEXT, comment TEXT, corrected INTEGER)")
 # Create table to hold analysis results
