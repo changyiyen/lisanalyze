@@ -34,7 +34,7 @@ if __name__ == '__main__':
 				os.setgroups([])
 				os.setgid(target_gid)
 				os.setuid(target_uid)
-				
+				print("[Info] Dropped privileges.")
 			except OSError:
 				print("[Error] Couldn't drop privileges. Aborting.")
 				exit(1)

@@ -20,23 +20,6 @@ def analyze(db_file, config_args, queue):
 	except ValueError:
 		raise Exception("Invalid normal_range.json file")
 
-	#c_r.execute("""SELECT DISTINCT time FROM lis_data
-	#	WHERE lab_test_name = 'CREA' AND site = '血液'
-	#	AND ( lab_value -
-	#		( SELECT x.lab_value FROM lis_data x
-	#		  WHERE x.lab_test_name='CREA' AND site = '血液'
-	#		  AND strftime('%s', x.time) < strftime('%s', time) ORDER BY x.time DESC LIMIT 1
-	#	    )
-	#	) /
-	#	( strftime('%s', time) -
-	#		strftime('%s', SELECT x.time FROM lis_data x, lis_data y
-	#			WHERE x.lab_test_name='CREA' AND x.site = '血液'
-	#			AND strftime('%s', x.time) < strftime('%s', time) ORDER BY x.time DESC LIMIT 1
-	#		)
-	#	)
-	#	> (0.6 / (2*24*60*60));"""
-	#)
-
 	c_r.execute("SELECT time, lab_value FROM lis_data WHERE lab_test_name = 'CREA' AND site = '血液';")
 	crea = c_r.fetchall()
 	for i in range(1,len(crea)):

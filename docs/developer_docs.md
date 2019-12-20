@@ -66,3 +66,9 @@ and queue (a multiprocessing.Queue object to send return messages to).
 "modules/analysis/__init__.py" so Python can load it. Also note that,
 regardless of whether your module needs configuration options, there must be an
 entry in config.ini for your module (which can be blank).
+
+## Future directions
+
+The lisanalyze database can be easily extended to include other parameters such
+as vital signs, allowing for automated calculations of clinical scores and
+other determinants, such as absolute neutrophil count.
